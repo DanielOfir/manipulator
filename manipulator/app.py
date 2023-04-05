@@ -2,27 +2,16 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/square', methods=['POST'])
-def square():
+@app.route('/manipulator', methods=['POST'])
+def manipulator():
     # Get the number from the POST request
     num = request.json['num']
 
-    # Square the number
     square = num ** 2
-
-    # Return the square as a JSON response
-    return jsonify({'square': square})
-
-@app.route('/double', methods=['POST'])
-def double():
-    # Get the number from the POST request
-    num = request.json['num']
-
-    # Square the number
     double = num * 2
+    triple = num * 3
 
-    # Return the square as a JSON response
-    return jsonify({'double': double})
+    return jsonify({'square': square,'double': double,'triple': triple})
 
 @app.route('/', methods=['GET'])
 def readiness_check():
