@@ -5,11 +5,10 @@ app = Flask(__name__)
 @app.route('/manipulator', methods=['POST'])
 def manipulator():
     # Get the number from the POST request
-    num = request.json['num']
-
-    square = num ** 2
-    double = num * 2
-    triple = num * 3
+    nums = request.json['nums']
+    square = nums[0] ** 2
+    double = nums[1] * 2
+    triple = nums[2] * 3
 
     return jsonify({'square': square,'double': double,'triple': triple})
 
