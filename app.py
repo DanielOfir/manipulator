@@ -5,12 +5,10 @@ app = Flask(__name__)
 @app.route('/manipulator', methods=['POST'])
 def manipulator():
     # Get the number from the POST request
-    nums = request.json['nums']
+    nums = request.json['num']
     square = nums[0] ** 2
-    double = nums[1] * 2
-    triple = nums[2] * 3
 
-    return jsonify({'square': square,'double': double,'triple': triple})
+    return jsonify({'square': square})
 
 @app.route('/', methods=['GET'])
 def readiness_check():
