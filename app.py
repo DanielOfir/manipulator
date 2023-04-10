@@ -5,8 +5,8 @@ app = Flask(__name__)
 @app.route('/manipulator', methods=['POST'])
 def manipulator():
     # Get the number from the POST request
-    nums = request.json['num']
-    square = nums[0] ** 2
+    num = request.json['num']
+    square = num ** 2
 
     return jsonify({'square': square})
 
